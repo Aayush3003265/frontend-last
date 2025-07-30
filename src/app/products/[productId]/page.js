@@ -8,7 +8,7 @@ import ImagePreview from "@/components/products/Preview";
 import BackButton from "@/components/BackButton";
 import RelatedProducts from "@/components/products/RelatedProducts";
 import { PRODUCTS_ROUTE } from "@/constants/routes";
-import { FaStar } from "react-icons/fa";
+import FinalStars from "@/components/products/FinalStars";
 
 async function getById(params) {
   const productId = (await params).productId;
@@ -54,18 +54,13 @@ async function ProductByIdPage({ params }) {
               Rs. {product.price}
             </p>
             <div className="flex items-center gap-2 mt-2 sm:mt-0">
-              <div className="flex items-center gap-1">
-                <FaStar className="w-4 h-4 text-yellow-300" />
-                <FaStar className="w-4 h-4 text-yellow-300" />
-                <FaStar className="w-4 h-4 text-yellow-300" />
-                <FaStar className="w-4 h-4 text-yellow-300" />
-                <FaStar className="w-4 h-4 text-yellow-300" />
-              </div>
+              {/* starss */}
+              <FinalStars productId={productId} />
               <p className="text-sm font-medium leading-none text-gray-500 dark:text-gray-400">
                 (5.0)
               </p>
               <span className="text-sm font-medium leading-none text-gray-900 dark:text-white">
-                345 Reviews
+                5 Reviews
               </span>
             </div>
           </div>
@@ -73,15 +68,13 @@ async function ProductByIdPage({ params }) {
             {product?.brand && (
               <Link
                 href={`${PRODUCTS_ROUTE}?brands=${product?.brand}`}
-                className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-5 py-1 rounded-sm dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800"
-              >
+                className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-5 py-1 rounded-sm dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800">
                 {product.brand}
               </Link>
             )}
             <Link
               href={`${PRODUCTS_ROUTE}?category=${product?.category}`}
-              className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-5 py-1 rounded-sm dark:bg-gray-900 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800"
-            >
+              className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-5 py-1 rounded-sm dark:bg-gray-900 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800">
               {product.category}
             </Link>
           </div>

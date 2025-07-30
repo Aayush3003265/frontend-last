@@ -39,15 +39,13 @@ function SearchProduct() {
         />
         <button
           onClick={searchProduct}
-          className="text-white absolute end-1.5 bottom-1.5 bg-primary hover:opacity-90 font-medium rounded-lg text-sm p-1"
-        >
+          className="text-white absolute end-1.5 bottom-1.5 bg-primary hover:opacity-90 font-medium rounded-lg text-sm p-1">
           <IoIosSearch className="w-5 h-5 text-white" />
         </button>
         {productName && (
           <button
             onClick={clearSearch}
-            className="absolute end-9 bottom-1.5 text-sm p-1"
-          >
+            className="absolute end-9 bottom-1.5 text-sm p-1">
             <IoClose className="w-5 h-5 text-primary" />
           </button>
         )}

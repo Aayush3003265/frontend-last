@@ -11,66 +11,66 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const product = action.payload;
-
       const existingProduct = state.products.find(
-        (item) => item.id == product.id
+        (item) => item.id === product.id
       );
+      const maxQuantity = product.price > 100000 ? 5 : 15;
 
       if (existingProduct) {
-        // update quantity
         state.products = state.products.map((item) => {
-          if (item.id == product.id) {
+          if (item.id === product.id && item.quantity < maxQuantity) {
             return { ...item, quantity: item.quantity + 1 };
           }
-
           return item;
         });
       } else {
-        // add product to cart
         state.products = [...state.products, { ...product, quantity: 1 }];
       }
 
       state.totalPrice = state.products.reduce((total, item) => {
-        total = item.price + state.totalPrice;
-
-        return total;
+        return total + item.price * item.quantity;
       }, 0);
     },
+
     removeFromCart: (state, action) => {
       const product = action.payload;
-
-      state.products = state.products.filter((item) => item.id != product.id);
-
+      state.products = state.products.filter((item) => item.id !== product.id);
       state.totalPrice = state.totalPrice - product.price * product.quantity;
     },
+
     increaseQuantity: (state, action) => {
       const product = action.payload;
+      const maxQuantity = product.price > 100000 ? 5 : 15;
 
       state.products = state.products.map((item) => {
-        if (item.id == product.id) {
+        if (item.id === product.id && item.quantity < maxQuantity) {
           return { ...item, quantity: item.quantity + 1 };
         }
-
         return item;
       });
 
-      state.totalPrice = state.totalPrice + product.price;
+      // Only increase total price if quantity was actually increased
+      const updatedProduct = state.products.find(
+        (item) => item.id === product.id
+      );
+      if (updatedProduct && updatedProduct.quantity > product.quantity) {
+        state.totalPrice = state.totalPrice + product.price;
+      }
     },
+
     decreaseQuantity: (state, action) => {
       const product = action.payload;
-
       if (product.quantity <= 1) return;
 
       state.products = state.products.map((item) => {
-        if (item.id == product.id) {
+        if (item.id === product.id) {
           return { ...item, quantity: item.quantity - 1 };
         }
-
         return item;
       });
-
       state.totalPrice = state.totalPrice - product.price;
     },
+
     clearCart: () => initialState,
   },
 });

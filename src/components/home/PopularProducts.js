@@ -1,11 +1,10 @@
 import Link from "next/link";
 import ProductCard from "../products/Card";
 import { PRODUCTS_ROUTE } from "@/constants/routes";
-import { getProducts } from "@/api/products";
+import { getPopularProducts } from "@/api/products";
 
 async function PopularProducts() {
-  const response = await getProducts({ category: "Smartphones" });
-
+  const response = await getPopularProducts();
   const products = response.data;
 
   return (
@@ -22,8 +21,7 @@ async function PopularProducts() {
           </div>
           <Link
             href={PRODUCTS_ROUTE}
-            className="text-[#016EB7] dark:text-blue-400 font-medium hover:underline"
-          >
+            className="text-[#016EB7] dark:text-blue-400 font-medium hover:underline">
             View all products
           </Link>
         </div>
