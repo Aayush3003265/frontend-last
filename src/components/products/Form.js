@@ -71,8 +71,7 @@ function ProductForm({ id, product, categories }) {
         <div className="sm:col-span-2">
           <label
             htmlFor="name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Product Name
           </label>
           <input
@@ -87,8 +86,7 @@ function ProductForm({ id, product, categories }) {
         <div className="w-full">
           <label
             htmlFor="brand"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Brand
           </label>
           <input
@@ -103,8 +101,7 @@ function ProductForm({ id, product, categories }) {
         <div>
           <label
             htmlFor="category"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Category
           </label>
           <input
@@ -127,8 +124,7 @@ function ProductForm({ id, product, categories }) {
         <div className="sm:col-span-2">
           <label
             htmlFor="price"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Price
           </label>
           <input
@@ -143,8 +139,7 @@ function ProductForm({ id, product, categories }) {
         <div className="sm:col-span-2">
           <label
             htmlFor="description"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Description
           </label>
           <textarea
@@ -158,8 +153,7 @@ function ProductForm({ id, product, categories }) {
         <div className="sm:col-span-2">
           <label
             htmlFor="images"
-            className="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-          >
+            className="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
             <div className="flex flex-col items-center justify-center pt-5 pb-6">
               <IoCloudUploadOutline className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" />
 
@@ -173,6 +167,7 @@ function ProductForm({ id, product, categories }) {
             </div>
             <input
               id="images"
+              name="images"
               type="file"
               className="hidden"
               multiple
@@ -210,8 +205,7 @@ function ProductForm({ id, product, categories }) {
       <button
         type="submit"
         className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:opacity-80 disabled:opacity-80"
-        disabled={loading}
-      >
+        disabled={loading}>
         {product ? "Edit product" : "Add product"}
         {loading && <Spinner className="ml-2 h-4 w-4" />}
       </button>
