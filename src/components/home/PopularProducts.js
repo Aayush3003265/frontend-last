@@ -9,8 +9,8 @@ async function PopularProducts() {
   const products = response.data;
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-      <div className="container mx-auto px-6">
+    <section className="py-8 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <div className="container mx-auto px-2">
         <div className="flex justify-between items-end mb-10">
           <TopRatedProducts />
         </div>

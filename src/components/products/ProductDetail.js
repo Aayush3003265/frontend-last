@@ -1,42 +1,30 @@
-import AddToCart from "@/components/products/AddToCart";
-import Image from "next/image";
-import Link from "next/link";
-import { getProductById } from "@/api/products";
-import ProductDescription from "@/components/products/Description";
-import AddToFavorite from "@/components/products/AddToFavorite";
-import ImagePreview from "@/components/products/Preview";
-import BackButton from "@/components/BackButton";
-import RelatedProducts from "@/components/products/RelatedProducts";
-import { PRODUCTS_ROUTE } from "@/constants/routes";
-import FinalStars from "@/components/products/FinalStars";
+"use client";
+import { useSelector } from "react-redux";
 import RatingStar from "@/components/products/RatingStar";
-import { toast } from "react-toastify";
+import FinalStars from "@/components/products/FinalStars";
+import AddToCart from "@/components/products/AddToCart";
+import AddToFavorite from "@/components/products/AddToFavorite";
+import ProductDescription from "@/components/products/Description";
+import ImagePreview from "@/components/products/Preview";
+import Link from "next/link";
+import { PRODUCTS_ROUTE } from "@/constants/routes";
+import BackButton from "@/components/BackButton";
 
-async function getById(params) {
-  const productId = (await params).productId;
+export default function ProductDetails({ product }) {
+  const { user } = useSelector((state) => state.auth);
+  const productId = product._id;
 
-  const response = await getProductById(productId).catch((error) => {
-    throw new Error(error.response.data);
-  });
+  console.log("🔍 user._id:", user?._id);
+  console.log("🔍 product.ratings:", product?.ratings);
+  const userRating =
+    product?.ratings?.find((r) => {
+      const ratedUserId =
+        typeof r.user === "object" && r.user !== null
+          ? r.user.$oid // use $oid here, because your DB stores user id as { $oid: "string" }
+          : r.user;
 
-  return response?.data;
-}
-
-export const generateMetadata = async ({ params }) => {
-  const product = await getById(params);
-
-  return {
-    title: {
-      absolute: product.name,
-    },
-    keywords: `${product?.brand},${product.category}`,
-  };
-};
-
-async function ProductByIdPage({ params }) {
-  const product = await getById(params);
-  const productId = (await params).productId;
-  const userRating = product?.ratings?.find((r) => r.user === user?._id);
+      return ratedUserId === user?._id || ratedUserId === user?.id;
+    }) || null;
 
   return (
     <>
@@ -57,7 +45,6 @@ async function ProductByIdPage({ params }) {
               Rs. {product.price}
             </p>
             <div className="flex items-center gap-2 mt-2 sm:mt-0">
-              {/* starss */}
               <FinalStars productId={productId} />
               <p className="text-sm font-medium leading-none text-gray-500 dark:text-gray-400">
                 (5.0)
@@ -85,64 +72,19 @@ async function ProductByIdPage({ params }) {
             <AddToFavorite />
             <AddToCart product={{ id: productId, ...product }} />
           </div>
-          {/* //star */}
           <div>
+            {console.log("userRating:", userRating)}
             <RatingStar
-              productId={productId}
+              productId={productId} // if _id is object, get $oid, else id
               initialRating={userRating?.value || 0}
               alreadyRated={!!userRating}
               MaxRating={5}
             />
           </div>
           <hr className="my-6 border-gray-200 dark:border-gray-800" />
-          <RelatedProducts
-            category={product.category}
-            currentProductId={productId}
-          />
         </div>
       </div>
       <ProductDescription description={product?.description} />
     </>
   );
 }
-
-export default ProductByIdPage;
-// import { getProductById } from "@/api/products";
-// import ProductDescription from "@/components/products/Description";
-// import ProductDetails from "@/components/products/ProductDetail";
-// import RelatedProducts from "@/components/products/RelatedProducts";
-// // import ProductDetails from "./ProductDetails";
-
-// async function getById(params) {
-//   const productId = (await params).productId;
-
-//   const response = await getProductById(productId).catch((error) => {
-//     throw new Error(error.response.data);
-//   });
-
-//   return response?.data;
-// }
-
-// export const generateMetadata = async ({ params }) => {
-//   const product = await getById(params);
-
-//   return {
-//     title: { absolute: product.name },
-//     keywords: `${product?.brand},${product.category}`,
-//   };
-// };
-
-// export default async function ProductByIdPage({ params }) {
-//   const product = await getById(params);
-//   return (
-//     <>
-//       <ProductDetails product={product} />
-//       {/* ✅ Render these in server component */}
-//       <hr className="my-6 border-gray-200 dark:border-gray-800" />
-//       <RelatedProducts
-//         category={product.category}
-//         currentProductId={product._id}
-//       />
-//     </>
-//   );
-// }

@@ -22,10 +22,11 @@ function Checkout({ products, totalPrice }) {
     if (!user) return router.push(LOGIN_ROUTE);
 
     setLoading(true);
+    console.log(products);
 
     createOrder({
       orderItems: products.map((item) => ({
-        product: item.id,
+        product: item._id || item.id,
         quantity: item.quantity,
       })),
       totalPrice,
@@ -43,16 +44,48 @@ function Checkout({ products, totalPrice }) {
       .catch((error) => toast.error(error.response.data, { autoClose: 750 }))
       .finally(() => setLoading(false));
   }
+  // function checkoutOrder() {
+  //   if (!user) return router.push(LOGIN_ROUTE);
+
+  //   setLoading(true);
+  //   console.log(products);
+  //   console.log("Order Items:", orderItems);
+
+  //   const orderItems = products.map((item) => ({
+  //     product: typeof item._id === "string" ? item._id : item.id,
+  //     quantity: Number(item.quantity) || 1,
+  //   }));
+
+  //   createOrder({
+  //     orderItems,
+  //     totalPrice,
+  //   })
+  //     .then(() => {
+  //       router.push(ORDERS_ROUTE);
+
+  //       toast.success("Order created successfully.", {
+  //         autoClose: 750,
+  //         onClose: () => {
+  //           dispatch(clearCart());
+  //         },
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       const msg =
+  //         error?.response?.data || error?.message || "Failed to create order";
+  //       toast.error(msg, { autoClose: 750 });
+  //     })
+  //     .finally(() => setLoading(false));
+  // }
 
   return (
     <div className="flex justify-end py-3">
       <button
         disabled={loading}
         onClick={checkoutOrder}
-        className="flex gap-1 items-center font-medium bg-primary px-5 py-2 rounded-md shadow text-white hover:opacity-90 cursor-pointer disabled:opacity-75"
-      >
+        className="flex gap-1 items-center font-medium bg-primary px-5 py-2 rounded-md shadow text-white hover:opacity-90 cursor-pointer disabled:opacity-75">
         <span>Checkout</span>
-        <RxDividerVertical />
+        {/* <RxDividerVertical /> */}
         <span>Rs. {totalPrice}</span>
         {loading && <Spinner className="ml-2 h-4 w-4" />}
       </button>

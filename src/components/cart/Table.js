@@ -50,8 +50,7 @@ function CartTable({ products }) {
           {products?.map((product, index) => (
             <tr
               key={index}
-              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-            >
+              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
               <td className="p-4">
                 <div className="h-14 w-14">
                   <Image
@@ -71,8 +70,7 @@ function CartTable({ products }) {
                   <button
                     onClick={() => dispatch(decreaseQuantity(product))}
                     className="inline-flex border items-center justify-center rounded-full p-1 me-3 text-gray-500 hover:bg-gray-100  dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 "
-                    type="button"
-                  >
+                    type="button">
                     <FiMinus className="w-4 h-4" />
                   </button>
                   <p className="bg-gray-50 text-gray-900 rounded-lg dark:bg-gray-700 dark:text-white border border-gray-300 py-1 px-3">
@@ -81,8 +79,7 @@ function CartTable({ products }) {
                   <button
                     onClick={() => dispatch(increaseQuantity(product))}
                     className="inline-flex border items-center justify-center rounded-full p-1 ms-3 text-gray-500 hover:bg-gray-100  dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 "
-                    type="button"
-                  >
+                    type="button">
                     <FiPlus className="w-4 h-4" />
                   </button>
                 </div>
@@ -97,8 +94,7 @@ function CartTable({ products }) {
                 <div className="flex justify-center">
                   <button
                     className="bg-red-600 dark:bg-red-500 hover:opacity-90 py-1 px-2 rounded flex items-center gap-2 text-white"
-                    onClick={() => removeFromCart(product)}
-                  >
+                    onClick={() => removeFromCart(product)}>
                     Remove
                     <IoTrashOutline className="h-4 w-4 text-white" />
                   </button>
