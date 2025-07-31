@@ -75,7 +75,7 @@ export default function ProductDetails({ product }) {
           <div>
             {console.log("userRating:", userRating)}
             <RatingStar
-              productId={productId} // if _id is object, get $oid, else id
+              productId={productId}
               initialRating={userRating?.value || 0}
               alreadyRated={!!userRating}
               MaxRating={5}
