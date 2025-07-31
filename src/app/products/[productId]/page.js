@@ -9,6 +9,8 @@ import BackButton from "@/components/BackButton";
 import RelatedProducts from "@/components/products/RelatedProducts";
 import { PRODUCTS_ROUTE } from "@/constants/routes";
 import FinalStars from "@/components/products/FinalStars";
+import RatingStar from "@/components/products/RatingStar";
+import { toast } from "react-toastify";
 
 async function getById(params) {
   const productId = (await params).productId;
@@ -19,6 +21,27 @@ async function getById(params) {
 
   return response?.data;
 }
+// const handleRating = async (productId, value) => {
+//   try {
+//     const response = await fetch(`/api/products/${productId}/rate`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       credentials: "include",
+//       body: JSON.stringify({ value }),
+//     });
+
+//     if (!response.ok) {
+//       throw new Error("Failed to submit rating");
+//     }
+
+//     const data = await response.json();
+//     toast.success("Thanks for your rating!");
+//   } catch (error) {
+//     console.error("❌ Error submitting rating:", error.message);
+//   }
+// };
 
 export const generateMetadata = async ({ params }) => {
   const product = await getById(params);
@@ -81,6 +104,10 @@ async function ProductByIdPage({ params }) {
           <div className="mt-6 gap-2 sm:gap-4 sm:items-center flex flex-col sm:flex-row sm:mt-8">
             <AddToFavorite />
             <AddToCart product={{ id: productId, ...product }} />
+          </div>
+          {/* //star */}
+          <div>
+            <RatingStar MaxRating={5} productId={productId} />
           </div>
           <hr className="my-6 border-gray-200 dark:border-gray-800" />
           <RelatedProducts

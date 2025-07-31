@@ -1,6 +1,7 @@
 "use client";
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { rateProduct } from "@/api/products";
 
 // RatingStar.propTypes = {
 //   maxRating: PropTypes.number,
@@ -12,8 +13,10 @@ export default function RatingStar({
   color = "#fcc419",
   size = 24,
   MaxRating = 10,
-  setMovieRating,
+  productId,
 }) {
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [temprating, setTempRating] = useState(0);
   const [rating, setRating] = useState(0);
   const ContainerStyle = {
@@ -37,10 +40,37 @@ export default function RatingStar({
   const HandleResetRating = () => {
     setTempRating(0);
   };
+  const handleSubmit = async () => {
+    if (!rating) return alert("Please select a rating");
 
-  const handelRating = (rating) => {
+    try {
+      setLoading(true);
+      await rateProduct(productId, rating);
+      setSubmitted(true);
+      console.log("✅ Rating submitted:", rating);
+    } catch (error) {
+      console.error(
+        "❌ Error submitting rating:",
+        error?.response?.data || error.message
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handelRating = async (rating) => {
     setRating(rating);
-    if (setMovieRating) setMovieRating(rating);
+    try {
+      if (productId) {
+        await rateProduct(productId, rating);
+        console.log("✅ Rating submitted:", rating);
+      }
+    } catch (error) {
+      console.error(
+        "❌ Error submitting rating:",
+        error?.response?.data || error.message
+      );
+    }
   };
 
   return (
@@ -61,6 +91,16 @@ export default function RatingStar({
         ))}
       </div>
       <p style={textStyle}>{temprating || rating || ""}</p>
+      <button
+        onClick={handleSubmit}
+        disabled={loading || submitted}
+        className="mt-2 px-4 py-1 rounded bg-yellow-500 text-white disabled:opacity-50">
+        {submitted
+          ? "✔️ Submitted"
+          : loading
+          ? "Submitting..."
+          : "Submit Rating"}
+      </button>
     </div>
   );
 }
@@ -110,4 +150,3 @@ const Star = ({
     </span>
   );
 };
-

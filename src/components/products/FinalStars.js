@@ -1,4 +1,6 @@
+"use client";
 import { useState } from "react";
+
 import { rateProduct } from "@/api/products";
 
 function FinalStars({ productId }) {
@@ -22,3 +24,5 @@ function FinalStars({ productId }) {
     </div>
   );
 }
+
+export default FinalStars;

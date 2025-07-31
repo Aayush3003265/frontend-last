@@ -54,6 +54,8 @@ async function getPopularProducts() {
   return await axios.get(`${config.apiUrl}/api/products/popular`);
 }
 
+
+
 // 👇 Export all
 export {
   createProduct,
