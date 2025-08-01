@@ -32,8 +32,7 @@ function KhaltiPayment({ order }) {
       onClick={initiatePayment}
       type="button"
       disabled={loading}
-      class="flex items-center gap-2 focus:outline-none text-white bg-[#5E338D] hover:opacity-90 font-medium rounded-lg text-sm px-5 py-2.5 disabled:opacity-80"
-    >
+      class="flex items-center gap-2 focus:outline-none text-white bg-[#5E338D] hover:opacity-90 font-medium rounded-lg text-sm px-5 py-2.5 disabled:opacity-80">
       Pay Via Khalti
       {loading ? (
         <Spinner className="h-5 w-5" />

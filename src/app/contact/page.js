@@ -30,7 +30,7 @@ const ContactPage = () => {
                     <LuMapPin className="w-6 h-6" />
                   </div>
                   <div className="ml-3 text-base text-gray-600 dark:text-gray-300">
-                    <p>Prithvi Path, Dharan, Sunsari</p>
+                    <p>Baikuntha Path, Bharatpur, Chitwan</p>
                   </div>
                 </div>
 
@@ -39,7 +39,7 @@ const ContactPage = () => {
                     <FiPhone className="h-6 w-6" />
                   </div>
                   <div className="ml-3 text-base text-gray-600 dark:text-gray-300">
-                    <p>9862130505</p>
+                    <p>9800000003</p>
                   </div>
                 </div>
 
@@ -48,7 +48,7 @@ const ContactPage = () => {
                     <MdOutlineEmail className="h-6 w-6" />
                   </div>
                   <div className="ml-3 text-base text-gray-600 dark:text-gray-300">
-                    <p>support@codeit.com.np</p>
+                    <p>bishravshrestha.com.np</p>
                   </div>
                 </div>
               </div>
@@ -82,14 +82,13 @@ const ContactPage = () => {
               </h2>
               <div className="aspect-w-16 aspect-h-9">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.661971062248!2d87.28371841110406!3d26.818889864018896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef4175e4f26a95%3A0x9b8526c7c4c7bc1c!2sCode%20IT!5e0!3m2!1sen!2snp!4v1748444135472!5m2!1sen!2snp"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d726.4020397970561!2d84.41641922145618!3d27.68120560590698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2snp!4v1753985368880!5m2!1sen!2snp"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
                   allowfullscreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
@@ -103,8 +102,7 @@ const ContactPage = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                >
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Full Name
                 </label>
                 <input
@@ -120,8 +118,7 @@ const ContactPage = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                >
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Email Address
                 </label>
                 <input
@@ -137,8 +134,7 @@ const ContactPage = () => {
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                >
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Subject
                 </label>
                 <input
@@ -154,8 +150,7 @@ const ContactPage = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                >
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Message
                 </label>
                 <textarea
@@ -164,15 +159,13 @@ const ContactPage = () => {
                   rows="5"
                   required
                   className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-                  placeholder="Your message here..."
-                ></textarea>
+                  placeholder="Your message here..."></textarea>
               </div>
 
               <div>
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:scale-105"
-                >
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:scale-105">
                   Send Message
                 </button>
               </div>

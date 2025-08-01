@@ -3,7 +3,7 @@
 import Link from "next/link";
 import PasswordField from "@/components/auth/PasswordField";
 import Spinner from "@/components/Spinner";
-import { EMAIL_REGEX } from "@/constants/regex";
+import { EMAIL_REGEX, USERNAME_REGEX } from "@/constants/regex";
 import { HOME_ROUTE, LOGIN_ROUTE } from "@/constants/routes";
 import { registerUser } from "@/redux/auth/authActions";
 import { toast } from "react-toastify";
@@ -62,13 +62,11 @@ function RegisterPage() {
       </h1>
       <form
         className="space-y-4 md:space-y-6"
-        onSubmit={handleSubmit(submitForm)}
-      >
+        onSubmit={handleSubmit(submitForm)}>
         <div>
           <label
             htmlFor="name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Your name
           </label>
           <input
@@ -78,6 +76,10 @@ function RegisterPage() {
             placeholder="John doe"
             {...register("name", {
               required: "Name is required.",
+              pattern: {
+                value: USERNAME_REGEX,
+                message: "Invalid email address.",
+              },
             })}
           />
           <p className="text-red-500 text-sm">{errors.name?.message}</p>
@@ -85,8 +87,7 @@ function RegisterPage() {
         <div>
           <label
             htmlFor="email"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Your email
           </label>
           <input
@@ -107,8 +108,7 @@ function RegisterPage() {
         <div>
           <label
             htmlFor="phone"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Phone number
           </label>
           <input
@@ -125,8 +125,7 @@ function RegisterPage() {
         <div>
           <label
             htmlFor="city"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Address city
           </label>
           <input
@@ -143,8 +142,7 @@ function RegisterPage() {
         <div>
           <label
             htmlFor="province"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Province
           </label>
           <select
@@ -153,8 +151,7 @@ function RegisterPage() {
             {...register("province", {
               required: "Province is required.",
             })}
-            defaultValue=""
-          >
+            defaultValue="">
             <option value="" disabled>
               Select province
             </option>
@@ -171,8 +168,7 @@ function RegisterPage() {
         <div>
           <label
             htmlFor="password"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Password
           </label>
           <PasswordField
@@ -190,8 +186,7 @@ function RegisterPage() {
         <div>
           <label
             htmlFor="confirm-password"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Confirm password
           </label>
           <PasswordField
@@ -214,8 +209,7 @@ function RegisterPage() {
           <div className="ml-3 text-sm">
             <label
               htmlFor="terms"
-              className="font-light text-gray-700 dark:text-gray-300"
-            >
+              className="font-light text-gray-700 dark:text-gray-300">
               I accept the{" "}
               <a className="font-medium text-primary hover:underline" href="#">
                 Terms and Conditions
@@ -226,8 +220,7 @@ function RegisterPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full text-white bg-primary hover:opacity-90 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-80"
-        >
+          className="w-full text-white bg-primary hover:opacity-90 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-80">
           <span>Create an account</span>
           {loading && <Spinner className="h-5 w-5 ml-2" />}
         </button>
@@ -235,8 +228,7 @@ function RegisterPage() {
           Already have an account?
           <Link
             href={LOGIN_ROUTE}
-            className="font-medium text-primary hover:underline ml-2"
-          >
+            className="font-medium text-primary hover:underline ml-2">
             Login here
           </Link>
         </p>

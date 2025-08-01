@@ -27,6 +27,7 @@ async function deleteOrder(id) {
 async function updateOrderStatus(id, data) {
   return await api.put(`/api/orders/${id}/status`, data);
 }
+const getOrderSummary = async () => await api.get("/api/orders/summary");
 
 export {
   createOrder,
@@ -36,4 +37,5 @@ export {
   confirmOrder,
   deleteOrder,
   updateOrderStatus,
+  getOrderSummary,
 };

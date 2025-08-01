@@ -49,13 +49,11 @@ function UserForm({ user }) {
   return (
     <form
       className="space-y-4 md:space-y-6"
-      onSubmit={handleSubmit(submitForm)}
-    >
+      onSubmit={handleSubmit(submitForm)}>
       <div>
         <label
           htmlFor="name"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           Name
         </label>
         <input
@@ -72,8 +70,7 @@ function UserForm({ user }) {
       <div>
         <label
           htmlFor="email"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           Email
         </label>
         <input
@@ -95,8 +92,7 @@ function UserForm({ user }) {
       <div>
         <label
           htmlFor="phone"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           Phone number
         </label>
         <input
@@ -113,8 +109,7 @@ function UserForm({ user }) {
       <div>
         <label
           htmlFor="street"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           Street
         </label>
         <input
@@ -128,8 +123,7 @@ function UserForm({ user }) {
       <div>
         <label
           htmlFor="city"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           City
         </label>
         <input
@@ -146,8 +140,7 @@ function UserForm({ user }) {
       <div>
         <label
           htmlFor="province"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           Province
         </label>
         <select
@@ -156,8 +149,7 @@ function UserForm({ user }) {
           {...register("province", {
             required: "Province is required.",
           })}
-          defaultValue=""
-        >
+          defaultValue="">
           <option value="" disabled>
             Select province
           </option>
@@ -175,18 +167,16 @@ function UserForm({ user }) {
       <div>
         <label
           htmlFor="role"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           Role
         </label>
         <select
           id="role"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           {...register("role")}
-          defaultValue={ROLE_USER}
-        >
+          defaultValue={ROLE_USER}>
           <option value={ROLE_USER}>{ROLE_USER}</option>
-          <option value={ROLE_MERCHANT}>{ROLE_MERCHANT}</option>
+          {/* <option value={ROLE_MERCHANT}>{ROLE_MERCHANT}</option> */}
           <option value={ROLE_ADMIN}>{ROLE_ADMIN}</option>
         </select>
       </div>
@@ -194,8 +184,7 @@ function UserForm({ user }) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full text-white bg-primary hover:opacity-90 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-80"
-      >
+        className="w-full text-white bg-primary hover:opacity-90 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-80">
         <span>Update user</span>
         {loading && <Spinner className="h-5 w-5 ml-2" />}
       </button>
