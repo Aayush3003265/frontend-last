@@ -19,7 +19,7 @@ const sidebarMenu = [
     label: "Dashboard",
     route: DASHBOARD_ROUTE,
     icon: <GiPieChart className="w-5 h-5 text-gray-500 dark:text-white" />,
-    authRole: ROLE_MERCHANT,
+    authRole: ROLE_ADMIN,
   },
   {
     label: "Product Management",
@@ -27,13 +27,13 @@ const sidebarMenu = [
     icon: (
       <MdOutlineLocalGroceryStore className="w-5 h-5 text-gray-500 dark:text-white" />
     ),
-    authRole: ROLE_MERCHANT,
+    authRole: ROLE_ADMIN,
   },
   {
     label: "Order Management",
     route: ORDER_MANAGEMENT_ROUTE,
     icon: <LuPackageOpen className="w-5 h-5 text-gray-500 dark:text-white" />,
-    authRole: ROLE_MERCHANT,
+    authRole: ROLE_ADMIN,
   },
   {
     label: "User Management",

@@ -36,6 +36,12 @@ async function ProductByIdPage({ params }) {
   const product = await getById(params);
   const productId = (await params).productId;
   // const userRating = product?.ratings?.find((r) => r.user === user?._id);
+  const ratings = product?.ratings || [];
+  const ratingsCount = ratings.length;
+  const averageRating =
+    ratingsCount > 0
+      ? ratings.reduce((sum, r) => sum + r.value, 0) / ratingsCount
+      : 0;
 
   return (
     <>
@@ -59,10 +65,10 @@ async function ProductByIdPage({ params }) {
               {/* starss */}
               <FinalStars productId={productId} />
               <p className="text-sm font-medium leading-none text-gray-500 dark:text-gray-400">
-                (5.0)
+                ({averageRating.toFixed(1)})
               </p>
               <span className="text-sm font-medium leading-none text-gray-900 dark:text-white">
-                5 Reviews
+                {ratingsCount} Review{ratingsCount !== 1 && "s"}
               </span>
             </div>
           </div>
