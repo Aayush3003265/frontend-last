@@ -7,3 +7,7 @@ export async function addComment(data) {
 export const getCommentsByProduct = async (productId) => {
   return await api.get(`/api/comments/${productId}`);
 };
+
+export async function deleteComment(commentId) {
+  return await api.delete(`/api/comments/${commentId}`);
+}

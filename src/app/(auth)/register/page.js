@@ -78,7 +78,7 @@ function RegisterPage() {
               required: "Name is required.",
               pattern: {
                 value: USERNAME_REGEX,
-                message: "Invalid email address.",
+                message: "Invalid Name.",
               },
             })}
           />
