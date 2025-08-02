@@ -1,5 +1,4 @@
 import AddToCart from "@/components/products/AddToCart";
-import Image from "next/image";
 import Link from "next/link";
 import { getProductById } from "@/api/products";
 import ProductDescription from "@/components/products/Description";
@@ -9,8 +8,8 @@ import BackButton from "@/components/BackButton";
 import RelatedProducts from "@/components/products/RelatedProducts";
 import { PRODUCTS_ROUTE } from "@/constants/routes";
 import FinalStars from "@/components/products/FinalStars";
-import RatingStar from "@/components/products/RatingStar";
-import { toast } from "react-toastify";
+import ProductRatingClient from "@/components/products/ProductRatingClient";
+import CommentSectionClient from "@/components/products/CommentSectionClient";
 
 async function getById(params) {
   const productId = (await params).productId;
@@ -36,7 +35,7 @@ export const generateMetadata = async ({ params }) => {
 async function ProductByIdPage({ params }) {
   const product = await getById(params);
   const productId = (await params).productId;
-  const userRating = product?.ratings?.find((r) => r.user === user?._id);
+  // const userRating = product?.ratings?.find((r) => r.user === user?._id);
 
   return (
     <>
@@ -87,11 +86,9 @@ async function ProductByIdPage({ params }) {
           </div>
           {/* //star */}
           <div>
-            <RatingStar
+            <ProductRatingClient
               productId={productId}
-              initialRating={userRating?.value || 0}
-              alreadyRated={!!userRating}
-              MaxRating={5}
+              ratings={product?.ratings}
             />
           </div>
           <hr className="my-6 border-gray-200 dark:border-gray-800" />
@@ -102,47 +99,9 @@ async function ProductByIdPage({ params }) {
         </div>
       </div>
       <ProductDescription description={product?.description} />
+      <CommentSectionClient productId={productId} ratings={product?.ratings} />
     </>
   );
 }
 
 export default ProductByIdPage;
-// import { getProductById } from "@/api/products";
-// import ProductDescription from "@/components/products/Description";
-// import ProductDetails from "@/components/products/ProductDetail";
-// import RelatedProducts from "@/components/products/RelatedProducts";
-// // import ProductDetails from "./ProductDetails";
-
-// async function getById(params) {
-//   const productId = (await params).productId;
-
-//   const response = await getProductById(productId).catch((error) => {
-//     throw new Error(error.response.data);
-//   });
-
-//   return response?.data;
-// }
-
-// export const generateMetadata = async ({ params }) => {
-//   const product = await getById(params);
-
-//   return {
-//     title: { absolute: product.name },
-//     keywords: `${product?.brand},${product.category}`,
-//   };
-// };
-
-// export default async function ProductByIdPage({ params }) {
-//   const product = await getById(params);
-//   return (
-//     <>
-//       <ProductDetails product={product} />
-//       {/* ✅ Render these in server component */}
-//       <hr className="my-6 border-gray-200 dark:border-gray-800" />
-//       <RelatedProducts
-//         category={product.category}
-//         currentProductId={product._id}
-//       />
-//     </>
-//   );
-// }

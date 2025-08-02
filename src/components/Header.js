@@ -26,15 +26,14 @@ function Header() {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
             href="/"
-            className="flex items-center space-x-3 rtl:space-x-reverse"
-          >
-            <Image
+            className="flex items-center space-x-3 rtl:space-x-reverse">
+            {/* <Image
               src={logo}
               className="h-8 w-auto"
               alt="E-bazaar Logo"
               height={100}
               width={100}
-            />
+            /> */}
             <span className="self-center text-2xl font-semibold whitespace-nowrap">
               E-Bazaar
             </span>
@@ -43,8 +42,7 @@ function Header() {
             <button
               className="px-2 py-1"
               title={theme == LIGHT_THEME ? "Dark mode" : "Light mode"}
-              onClick={() => dispatch(toggleTheme())}
-            >
+              onClick={() => dispatch(toggleTheme())}>
               {theme == LIGHT_THEME ? (
                 <MdOutlineDarkMode />
               ) : (
@@ -64,16 +62,14 @@ function Header() {
             ) : (
               <Link
                 href={LOGIN_ROUTE}
-                className="text-white bg-primary hover:opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center "
-              >
+                className="text-white bg-primary hover:opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center ">
                 Login
               </Link>
             )}
           </div>
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-            id="navbar-cta"
-          >
+            id="navbar-cta">
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-slate-800 ">
               {navLinks.map((navLink, index) =>
                 user || !navLink.isAuth ? (
