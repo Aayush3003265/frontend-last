@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   FiFacebook,
   FiTwitter,
@@ -25,32 +26,27 @@ const Footer = () => {
             <div className="flex space-x-4 pt-2">
               <a
                 href="#"
-                className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-              >
+                className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                 <FiFacebook size={20} />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-              >
+                className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                 <FiTwitter size={20} />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-              >
+                className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                 <FiInstagram size={20} />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-              >
+                className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                 <FiLinkedin size={20} />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-              >
+                className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                 <FiYoutube size={20} />
               </a>
             </div>
@@ -63,48 +59,42 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                   Home
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                   Shop
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                   New Arrivals
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                   Best Sellers
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                   Special Offers
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                   My Account
                 </a>
               </li>
@@ -118,48 +108,42 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                   Contact Us
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                   FAQ
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                   Shipping Policy
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                   Returns & Refunds
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                   Privacy Policy
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
                   Terms & Conditions
                 </a>
               </li>
@@ -173,27 +157,25 @@ const Footer = () => {
               <div className="flex items-start">
                 <FiMapPin className="mt-1 mr-3 flex-shrink-0 text-[#016EB7] dark:text-blue-400" />
                 <p className="text-gray-400">
-                  123 Business Avenue, Tech Park
+                  Chitwan
                   <br />
-                  San Francisco, CA 94107
+                  Bharatpur
                 </p>
               </div>
               <div className="flex items-center">
                 <FiPhone className="mr-3 flex-shrink-0 text-[#016EB7] dark:text-blue-400" />
                 <a
                   href="tel:+15551234567"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
-                  +1 (555) 123-4567
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
+                  +977 9800000003sss
                 </a>
               </div>
               <div className="flex items-center">
                 <FiMail className="mr-3 flex-shrink-0 text-[#016EB7] dark:text-blue-400" />
                 <a
                   href="mailto:info@yourstore.com"
-                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300"
-                >
-                  info@yourstore.com
+                  className="text-gray-400 hover:text-[#016EB7] dark:hover:text-blue-400 transition-colors duration-300">
+                  https://aayush-aadhikari.com.np/
                 </a>
               </div>
             </div>
@@ -215,8 +197,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="bg-[#016EB7] hover:bg-[#015a9b] text-white px-4 py-2 rounded-r-md transition-colors duration-300"
-                >
+                  className="bg-[#016EB7] hover:bg-[#015a9b] text-white px-4 py-2 rounded-r-md transition-colors duration-300">
                   Subscribe
                 </button>
               </form>
@@ -230,19 +211,9 @@ const Footer = () => {
             We Accept
           </h4>
           <div className="flex flex-wrap justify-center items-center gap-4">
-            <img
-              src="https://static.cdnlogo.com/logos/p/41/paypal.svg"
-              alt="PayPal"
-              className="h-8"
-            />
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg"
-              alt="Apple Pay"
-              className="h-8"
-            />
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
-              alt="Google Pay"
+            <Image
+              src="https://khalti.com/static/images/khalti-icon.png"
+              alt="Khalti Icon"
               className="h-8"
             />
           </div>
