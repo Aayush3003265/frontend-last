@@ -24,8 +24,8 @@ export default function TopRatedProducts() {
 
   return (
     <div className="p-8 bg-white dark:bg-gray-900 rounded-2xl shadow-md">
-      <h2 className="text-3xl font-extrabold tracking-wide text-orange-600 dark:text-orange-400 mb-8">
-        🌟 Top Rated Products
+      <h2 className="text-3xl font-extrabold tracking-wide text-gray-800 dark:text-white mb-8">
+        Top Rated Products
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

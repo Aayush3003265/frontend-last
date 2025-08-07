@@ -1,6 +1,7 @@
 "use client";
 
 import { getPopularProducts } from "@/api/products";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FiArrowRight, FiArrowLeft, FiStar } from "react-icons/fi";
 // import { getPopularProducts } from "@/services/productService"; // adjust path
@@ -64,11 +65,12 @@ export default function TopRatedSlider() {
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
               {/* Product Image */}
               <div className="md:w-1/2 flex justify-center">
-                <div className="relative w-full max-w-md h-64 md:h-96 bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden">
-                  <img
+                <div className="relative w-full max-w-md h-64 md:h-96 bg-white dark:bg-gray-700 rounded-xl shadow-lg  overflow-hidden">
+                  <Image
                     src={product.imageUrls?.[0] || "/placeholder.png"}
                     alt={product.name}
-                    className="w-full h-full object-contain p-6 transform hover:scale-105 transition duration-500"
+                    img
+                    className="w-full h-full object-cover p-6 transform hover:scale-105 transition duration-500"
                   />
                 </div>
               </div>
