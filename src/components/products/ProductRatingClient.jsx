@@ -12,31 +12,46 @@ export default function ProductRatingClient({
 }) {
   const user = useSelector((state) => state.auth.user);
   const userId = user?._id || user?.id;
-  const token = user?.token; // assuming you store JWT token in user object
 
   const [canRate, setCanRate] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  // ✅ Check if user can rate this product
   useEffect(() => {
     if (!userId) return;
 
-    axios
-      .get(`http://localhost:5000/api/products/${productId}/can-rate`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
+    const fetchCanRate = async () => {
+      try {
+        setLoading(true);
+
+        // Use environment variable for API URL
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const res = await axios.get(
+          `${apiUrl}/api/products/${productId}/can-rate`,
+          {
+            headers: {
+              Authorization: `Bearer ${user?.token}`, // if you use token
+            },
+          }
+        );
+
         setCanRate(res.data.canRate);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.error("Can rate check error:", err);
         setCanRate(false);
-      });
-  }, [userId, productId, token]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCanRate();
+  }, [userId, productId, user?.token]);
 
   // Find user's rating
   const userRating = ratings?.find(
     (r) => (typeof r.user === "object" ? r.user._id : r.user) === userId
   );
+
+  if (loading) return <p>Checking if you can rate...</p>;
 
   return (
     <div className="mt-4">
