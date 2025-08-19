@@ -210,13 +210,15 @@ const Footer = () => {
           <h4 className="text-lg font-semibold text-white mb-4 text-center">
             We Accept
           </h4>
-          <div className="flex flex-wrap justify-center items-center gap-4">
+          {/* <div className="flex flex-wrap justify-center items-center gap-4">
             <Image
               src="https://khalti.com/static/images/khalti-icon.png"
               alt="Khalti Icon"
               className="h-8"
+              height={8}
+              width={8}
             />
-          </div>
+          </div> */}
         </div>
 
         {/* Copyright */}
