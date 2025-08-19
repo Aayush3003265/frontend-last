@@ -19,7 +19,7 @@ const HomePage = () => {
       <section className="py-16 bg-[#016EB7] dark:bg-blue-900 transition-colors duration-300">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to experience the best?
+            Ready to experience the best??
           </h2>
           <p className="text-blue-100 dark:text-blue-200 max-w-2xl mx-auto text-lg mb-8">
             Join thousands of satisfied customers who trust our products every
