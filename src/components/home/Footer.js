@@ -227,7 +227,9 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Your Store Name. All rights
             reserved.
           </p>
-          <p className="mt-2">Designed and developed with ❤️ by Your Team</p>
+          <p className="mt-2">
+            Designed and developed with ❤️ by Team GULUGULU
+          </p>
         </div>
       </div>
     </footer>
