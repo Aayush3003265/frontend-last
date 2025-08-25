@@ -112,7 +112,7 @@ export default function TopRatedSlider() {
                 {/* Price */}
                 <div className="mb-6">
                   <span className="text-3xl font-bold text-[#016EB7] dark:text-blue-400">
-                    ${product.price.toFixed(2)}
+                    RS. {product.price.toFixed(2)}
                   </span>
                 </div>
               </div>
