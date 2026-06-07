@@ -48,7 +48,7 @@ const ContactPage = () => {
                     <MdOutlineEmail className="h-6 w-6" />
                   </div>
                   <div className="ml-3 text-base text-gray-600 dark:text-gray-300">
-                    <p>bishravshrestha.com.np</p>
+                    <p>aayush-aadhikari.com.np</p>
                   </div>
                 </div>
               </div>
