@@ -30,7 +30,7 @@ const ContactPage = () => {
                     <LuMapPin className="w-6 h-6" />
                   </div>
                   <div className="ml-3 text-base text-gray-600 dark:text-gray-300">
-                    <p>Baikuntha Path, Bharatpur, Chitwan</p>
+                    <p>Bhojad, Bharatpur-11, Chitwan</p>
                   </div>
                 </div>
 
@@ -48,7 +48,7 @@ const ContactPage = () => {
                     <MdOutlineEmail className="h-6 w-6" />
                   </div>
                   <div className="ml-3 text-base text-gray-600 dark:text-gray-300">
-                    <p>aayush-aadhikari.com.np</p>
+                    <p>aayushadhikari702@gmail.com</p>
                   </div>
                 </div>
               </div>
